@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/iwra-signets/static/css/main.df90d0de.chunk.css",
+    "main.js": "/iwra-signets/static/js/main.a21a0a6e.chunk.js",
+    "main.js.map": "/iwra-signets/static/js/main.a21a0a6e.chunk.js.map",
+    "runtime-main.js": "/iwra-signets/static/js/runtime-main.2dafe3d9.js",
+    "runtime-main.js.map": "/iwra-signets/static/js/runtime-main.2dafe3d9.js.map",
+    "static/js/2.cd5aa7fc.chunk.js": "/iwra-signets/static/js/2.cd5aa7fc.chunk.js",
+    "static/js/2.cd5aa7fc.chunk.js.map": "/iwra-signets/static/js/2.cd5aa7fc.chunk.js.map",
+    "index.html": "/iwra-signets/index.html",
+    "static/css/main.df90d0de.chunk.css.map": "/iwra-signets/static/css/main.df90d0de.chunk.css.map",
+    "static/js/2.cd5aa7fc.chunk.js.LICENSE.txt": "/iwra-signets/static/js/2.cd5aa7fc.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2dafe3d9.js",
+    "static/js/2.cd5aa7fc.chunk.js",
+    "static/css/main.df90d0de.chunk.css",
+    "static/js/main.a21a0a6e.chunk.js"
+  ]
+}
