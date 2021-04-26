@@ -20,13 +20,15 @@ export default function Appli() {
   const [ouvert, setOuvert] = useState(false);
 
   function gererAjoutDossier(titre, couverture, couleur) {
-    //console.log(titre, '/', couverture, '/', couleur);
     crudDossiers.creer(utilisateur.uid, {
       titre: titre,
       couverture: couverture,
       couleur: couleur
-    });
+    }).then(
+      docDossier => setDossiers([...dossiers, {id: docDossier.id, ...docDossier.data()}])
+    )
   }
+
 
   useEffect(
     () => {

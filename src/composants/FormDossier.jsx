@@ -17,13 +17,21 @@ export default function FormDossier({ouvert, setOuvert, gererAjoutDossier}) {
 
   const gererFermer = () => {
     setOuvert(false);
+    // Réinitialiser les états
+    reinitialiserEtats();
   };
 
+  function reinitialiserEtats() {
+    setTitre('');
+    setCouverture('');
+    setCouleur('#f00');
+  }
+
   function gererEnvoiFormulaire() {
-    // 2) Appeler une fonction qui permet d'intégrer le backend (firebase)
+    // 1) Appeler une fonction qui permet d'intégrer le backend (firebase)
     gererAjoutDossier(titre, couverture, couleur)
 
-    // 3) Fermer la boîte de dialogue
+    // 2) Fermer la boîte de dialogue
     gererFermer();
   }
 
