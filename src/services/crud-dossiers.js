@@ -13,8 +13,8 @@ export async function lireTout(uid) {
                             );
 }
 
-export async function supprimer() {
-
+export async function supprimer(uid, idDossier) {
+  return instanceFirestore.collection(collUtil).doc(uid).collection(collDossiers).doc(idDossier).delete();
 }
 
 export async function modifier() {

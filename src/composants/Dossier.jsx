@@ -1,15 +1,11 @@
 import './Dossier.scss'; 
 import { IconButton } from '@material-ui/core';
 import SortIcon from '@material-ui/icons/Sort';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import DeleteIcon from '@material-ui/icons/Delete';
 import couvertureDefaut from '../images/couverture-defaut.jpg';
+import * as crudDossiers from '../services/crud-dossiers';
 
-export default function Dossier({titre, couleur, modification, couverture}) {
-  // let urlCouverture = couvertureDefaut;
-  // if(couverture) {
-  //   urlCouverture = couverture;
-  // }
-
+export default function Dossier({id, titre, couleur, modification, couverture, supprimerDossier}) {
   return (
     <article className="Dossier" style={{backgroundColor: couleur}}>
       <div className="couverture">
@@ -23,7 +19,7 @@ export default function Dossier({titre, couleur, modification, couverture}) {
         <p>Modifié : {obtenirDateFormatee(modification)}</p>
       </div>
       <IconButton className="modifier" aria-label="modifier" size="small">
-        <MoreVertIcon />
+        <DeleteIcon onClick={() => supprimerDossier(id) } />
       </IconButton>
     </article>
   );

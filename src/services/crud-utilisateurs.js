@@ -17,6 +17,27 @@ export function initUI(refEltAncrage) {
   });
 }
 
+export function observerConnexion(mutateurUtilisateur) {
+  instanceFirebaseAuth.onAuthStateChanged(
+    util => {
+      // Changer l'état de la variable 'utilisateur'
+      mutateurUtilisateur(util);
+      // Si l'utilisteur vient de se loguer, créer son profil dans Firestore
+      // si c'est un nouvel utilisateur (ou rien faire s'il existe déjà)
+      if(util !== null) {
+        creerProfil(util.uid, util.displayName, util.email)
+      }
+    }
+  )
+}
+
+function creerProfil(idUtilisateur, nomUtilisateur, courrielUtilisateur) {
+  instanceFirestore.collection(collUtil).doc(idUtilisateur).set(
+    {nom: nomUtilisateur, courriel: courrielUtilisateur},
+    {merge: true}
+  );
+}
+
 
 export function deconnexion() {
   instanceFirebaseAuth.signOut();

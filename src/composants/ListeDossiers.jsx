@@ -18,11 +18,25 @@ export default function ListeDossiers(props) {
     , []
   );
 
+  function supprimerDossier(idDossier) {
+    crudDossiers.supprimer(utilisateur.uid, idDossier).then(
+      () => {
+        setDossiers(dossiers.filter(d => d.id !== idDossier))
+      }
+    )
+  }
+
   return (
     <ul className="ListeDossiers">
       {
         dossiers.map( 
-          dossier =>  <li key={dossier.id}><Dossier {...dossier} /></li>
+          dossier =>  <li key={dossier.id}>
+                        <Dossier 
+                          {...dossier} 
+                          uid={utilisateur.uid} 
+                          supprimerDossier={supprimerDossier} 
+                        />
+                      </li>
         )
       }
     </ul>
