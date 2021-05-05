@@ -1,0 +1,33 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "dossiers",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "modification",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "titre",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "taches",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "completee",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "date",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

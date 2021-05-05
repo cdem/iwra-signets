@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+  	/*** DÉBUT ****************************************************************/
+    /* Exercice de classe Signets */
+    // Permettre à un utilisateur connecté d'ajouter son profil
+    match /signets-utilisateurs/{idUtil} {
+    	allow read, update, delete: if request.auth != null && request.auth.uid == idUtil
+      allow create: if request.auth != null
+    }
+    // Permettre à un utilisateur connecté de tout faire dans sa collection 'dossiers'
+    match /signets-utilisateurs/{idUtil}/dossiers/{document=**} {
+    	allow read, write: if request.auth != null && request.auth.uid == idUtil
+    }
+  	/*** FIN ******************************************************************/
+
+  	/*** DÉBUT ****************************************************************/
+    /* Exercice #2 */
+    match /ex2-produits/{document=**} {
+      allow read: if true;
+    }
+  	/*** FIN ******************************************************************/
+    
+  	/*** DÉBUT ****************************************************************/
+    /* Exercice #3, #4, et le TP  */
+    match /memo-utilisateurs/{idUtil} {
+    	allow read, update, delete: if request.auth != null && request.auth.uid == idUtil
+      allow create: if request.auth != null
+    }
+    match /memo-utilisateurs/{idUtil}/taches/{document=**} {
+    	allow read, write: if request.auth != null && request.auth.uid == idUtil
+    }
+  	/*** FIN ******************************************************************/
+  }
+}
